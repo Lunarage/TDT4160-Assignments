@@ -1,0 +1,29 @@
+ldi %r2, 1
+optcode operand immediate
+ldi     r2      22-bit with value 1
+00000   00010   0000000000000000000001
+
+ldi %r1, 1
+optcode operand
+ldi     r1      22-bit with value 1
+00000   00001   0000000000000000000001
+
+mul %r2, %r2, %r0
+optcode destination operand1 operand2 unused
+mul     r2          r2       r0
+00010   00010       00010    00000    XXXXXXXXXXXX
+
+sub %r0, %r0, %r1
+optcode destination operand1 operand2 unused
+sub     r0          r0       r1
+00101   00000       00000    00001    XXXXXXXXXXXX
+
+cmp %r3, %r0, %r1
+optcode destination operand1 operand2 unused
+cmp     r3          r0       r1
+00011   00011       00000    00001    XXXXXXXXXXXX
+
+jgt %r3, -16
+optcode operand immediate
+jgt     r3      -16 22-bit 2's complement
+00100   00011   1111111111111111110000
